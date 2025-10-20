@@ -99,4 +99,5 @@ Add archiving and search of chat history
 👤 Author
 
 Vijaya
-📧 [your.email@example.com
+📧 chandoluvijaya00@gmail.com
+
