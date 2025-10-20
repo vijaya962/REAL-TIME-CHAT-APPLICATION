@@ -24,7 +24,7 @@ This project offers a web-based chat application where users can send and receiv
 
 🛠 Technologies Used
 
-Node.js + Express – backend server (if used)
+
 
 Socket.IO – for real-time bi-directional communication
 
@@ -56,15 +56,11 @@ npm start
 
 
 Then open http://localhost:3000 (or the configured port) in your browser.
-If your project is purely front-end, simply open the HTML file directly in the browser.
+ project is purely front-end, simply open the HTML file directly in the browser.
 
 📁 Project Structure
-REAL-TIME-CHAT-APPLICATION/
-│
-├── server/            # (Optional) backend server files  
-│   ├── index.js       
-│   └── …              
-├── client/            # (Optional) front-end React/Vue files  
+REAL-TIME-CHAT-APPLICATION              
+├── client/         
 │   ├── index.html     
 │   ├── style.css      
 │   └── script.js      
