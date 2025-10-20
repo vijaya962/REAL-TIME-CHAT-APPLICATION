@@ -96,6 +96,8 @@ Integrate end-to-end encryption for messages
 
 Add archiving and search of chat history
 
+# OUTPUT #:![Image](https://github.com/user-attachments/assets/e6f3332e-628e-448c-bd05-64a38be71ac0)
+
 👤 Author
 
 Vijaya
