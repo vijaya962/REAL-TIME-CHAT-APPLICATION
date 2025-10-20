@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Chat Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .chat-container {
+      width: 90%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-header {
+      background-color: #0984e3;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .chat-box {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .message {
+      background-color: #dfe6e9;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 75%;
+    }
+    .my-message {
+      background-color: #74b9ff;
+      color: white;
+      align-self: flex-end;
+    }
+    .input-area {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+    .input-area button {
+      background-color: #0984e3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .input-area button:hover {
+      background-color: #74b9ff;
+    }
+    @media (max-width: 600px) {
+      .chat-container { width: 100%; height: 100vh; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">💬 Real-Time Chat Application</div>
+    <div class="chat-box" id="chatBox"></div>
+    <div class="input-area">
+      <input type="text" id="messageInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const ws = new WebSocket('wss://echo.websocket.org'); // Echo server for testing
+    const chatBox = document.getElementById('chatBox');
+    const messageInput = document.getElementById('messageInput');
+
+    ws.onmessage = function(event) {
+      displayMessage(event.data, false);
+    };
+
+    function sendMessage() {
+      const message = messageInput.value.trim();
+      if (message === '') return;
+      ws.send(message);
+      displayMessage(message, true);
+      messageInput.value = '';
+    }
+
+    function displayMessage(message, isMine) {
+      const msgDiv = document.createElement('div');
+      msgDiv.classList.add('message');
+      if (isMine) msgDiv.classList.add('my-message');
+      msgDiv.textContent = message;
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
