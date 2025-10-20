@@ -1,5 +1,6 @@
 # REAL-TIME-CHAT-APPLICATION
 
+
 💬 Real-Time Chat Application
 
 A fast and interactive real-time chat app built to enable instant messaging between users, with a smooth UI and responsive design.
